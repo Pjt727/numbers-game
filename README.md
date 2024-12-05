@@ -2,8 +2,7 @@
 - Computer Society audience driven game
 ## Basic game starting concept
 - there are rounds
-- you have lives
-    - you lose life when you fail a round
+- if you fail a round the game ends
 - object is to stay alive for as many rounds
 - you're given an inventory of mathematical symbols (numbers, operations, etc)
 - each round

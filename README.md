@@ -6,7 +6,6 @@
 - object is to stay alive for as many rounds
 - you're given an inventory of mathematical symbols (numbers, operations, etc)
 - each round
-    - you may be given more symbols at round start
     - you must get to a target value by creating a mathematical expression with you're symbols
     - you comsume the symbols use use in your expression
     - if you don't get the target value you fail

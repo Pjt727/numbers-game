@@ -40,5 +40,25 @@
 - mode where there are two target
     - anyone in your expression evals to bonus you get it
 
-
+# Setup instructions
+## short
+- install dependencies in `requirements.txt` and run `main.py` with python
+## verbose
+- set up a python environment (optional)
+    - create environment: `python -m venv venv`
+    - python might be `python3` on your path as well
+    - activate (windows): `venv\Scripts\activate`
+        - if you get a "Scripts are disabled on this system" (powershell error) you can run the follow command
+        - you may want to revert this for security reasons
+        - `Set-ExecutionPolicy Unrestricted`
+    - activate (mac/ linux): `source venv/bin/activate`
+- run these next commands in your shell/ terminal in the root directory of this project
+- install dependencies 
+    - `pip install -r requirements.txt`
+- if you dont have pip in your path (command not found) but you have python you can use
+    - `python -m pip install -r requirements.txt`
+    - python might be `python3` on your path
+- run the program
+    - `python main.py`
+    - python might be `python3` on your path
 

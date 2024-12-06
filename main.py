@@ -1,11 +1,13 @@
 from typing import Counter
+import math
 import signal
 from py_expression_eval import Parser
 import random
 import sys
 
+
 NUMS = "0123456789"
-OPERATORS = "-+"
+OPERATORS = "-+*%!"
 parser = Parser()
 
 
@@ -18,22 +20,37 @@ def signal_handler(*_):
 signal.signal(signal.SIGINT, signal_handler)
 
 
-def generate_start_iventory() -> Counter:
-    starting_nums = "".join(random.choices(NUMS, k=12))
-    starting_operators = "".join(random.choices(OPERATORS, k=4))
+def generate_start_inventory() -> Counter:
+    starting_nums = "".join(random.choices(NUMS, k=14))
+    starting_operators = "".join(random.choices(OPERATORS, k=8))
+    return Counter(starting_nums + starting_operators)
+
+
+def random_items_after_round() -> Counter:
+    starting_nums = "".join(random.choices(NUMS, k=3))
+    starting_operators = "".join(random.choices(OPERATORS, k=2))
     return Counter(starting_nums + starting_operators)
 
 
 class Game:
     def __init__(self) -> None:
         self.parser: Parser = Parser()
-        self.inventory: Counter = generate_start_iventory()
+        self.inventory: Counter = generate_start_inventory()
         self.score = 0
+        self.turn = 0
         self.running = True
 
     def game_loop(self):
         while self.running:
             self.play_round()
+            if self.turn % 3 == 0:
+                self.inventory += random_items_after_round()
+
+        user_input = input("Enter r to replay the game: ")
+        if user_input.lower() == "r":
+            self.running = True
+            self.inventory = generate_start_inventory()
+            self.game_loop()
 
     def play_round(self):
         print(f"Inventory:\n{self.inventory_pretty()}")
@@ -51,17 +68,25 @@ class Game:
         user_result = self.evaluate_expression(user_expression)
         if user_result == current_target:
             print("Correct ✅")
+            # TODO: score may change dpeending on something
             self.score += 1
-            input("Press anything to coninute")
-            print("\033[2J\033[H")  # ]]clears screen
+            self.turn += 1
+            user_value = input("Press anything (except q) to continue or q to quit: ")
+            if user_value.lower() == "q":
+                self.running = False
+                print(f"You Quit 🫵 Score: {self.score} 😥")
+            else:
+                print("\033[2J\033[H")  # ]]clears screen
         else:
-            print(f"{user_expression} is Wrong❗ You Lose 🫵 Score: {self.score} 😅")
+            print(f"{user_result} is Wrong❗ You Lose 🫵 Score: {self.score} 😅")
             self.running = False
 
     def get_target(self) -> int:
         return random.randint(-20, 20)
+        # return 1
 
     def inventory_pretty(self) -> str:
+        # TODO: add colors to symbols
         return "\n".join(
             f"'{symbol}' - {count}"
             for symbol, count in sorted(self.inventory.items(), key=lambda i: i[0])
@@ -82,6 +107,21 @@ class Game:
     # documentation on evaluate
     # https://pypi.org/project/py-expression-eval/
     def evaluate_expression(self, expression: str) -> float:
+        # preprocess string for fact
+        running_number: str = ""
+        expression_copy = expression
+        for symbol in expression_copy:
+            if symbol in OPERATORS:
+                if symbol == "!":
+                    fact_result = math.factorial(int(running_number))
+                    expression = expression.replace(
+                        running_number + "!", str(fact_result)
+                    )
+
+                running_number = ""
+            else:
+                running_number += symbol
+
         return self.parser.parse(expression).evaluate({})
 
 

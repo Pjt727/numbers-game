@@ -1,6 +1,7 @@
 # Premise
 - Computer Society audience driven game
 ## Basic game starting concept
+- this concept of this game was adapted from this [steam game](https://store.steampowered.com/app/3043740/Calculate_It/)
 - there are rounds
 - if you fail a round the game ends
 - object is to stay alive for as many rounds

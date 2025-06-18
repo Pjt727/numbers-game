@@ -21,8 +21,8 @@ signal.signal(signal.SIGINT, signal_handler)
 
 
 def generate_start_inventory() -> Counter:
-    starting_nums = "".join(random.choices(NUMS, k=14))
-    starting_operators = "".join(random.choices(OPERATORS, k=8))
+    starting_nums = "".join(random.choices(NUMS, k=6))
+    starting_operators = "".join(random.choices(OPERATORS, k=5))
     return Counter(starting_nums + starting_operators)
 
 

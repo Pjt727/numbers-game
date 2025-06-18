@@ -17,6 +17,7 @@ Members would then have the opportunity to extend the game with their own ideas 
 - Once we have some amount of suggestions, we'll pick one at random
     - This will then be live implemented as fast as possible
 
+![Game Play](assets/Gameplay.png)
 ## Ideas from club members not implemented
 - colors
 - lootboxes

@@ -1,28 +1,29 @@
 # Premise
-- Computer Society audience driven game
+Computer Society audience-driven game where members contribute ideas and see them implemented in real time.
+Members would then have the opportunity to extend the game with their own ideas or unimplemented ones from the meeting.
 ## Basic game starting concept
-- the concept of this game was adapted from this [steam game](https://store.steampowered.com/app/3043740/Calculate_It/)
-- there are rounds
-- if you fail a round the game ends
-- object is to stay alive for as many rounds
-- you're given an inventory of mathematical symbols (numbers, operations, etc)
+- The concept of this game was adapted from this [steam game](https://store.steampowered.com/app/3043740/Calculate_It/)
+- There are rounds
+- If you fail a round, the game ends
+- The objective is to stay alive for as many rounds
+- You're given an inventory of mathematical symbols (numbers, operations, etc)
 - each round
-    - you must get to a target value by creating a mathematical expression with your symbols
-    - you comsume the symbols use use in your expression
-    - if you don't get the target value you fail
+    - You must get to a target value by creating a mathematical expression with your symbols
+    - You consume the symbols used in your expression
+    - If you don't get the target value, you fail
 ## Meeting Organization
-- members write down an **ANY** addition to the game (i.e. adding another operation)
-- the note will be folded up and placed up front
-- once we have some amount of suggestions we'll pick one at random
-    - this will then be live implemented as fast as possible
+- Members write down an **ANY** addition to the game (i.e., adding another operation)
+- The note will be folded up and placed up front
+- Once we have some amount of suggestions, we'll pick one at random
+    - This will then be live implemented as fast as possible
 
-## ideas from club members not implemented
+## Ideas from club members not implemented
 - colors
 - lootboxes
 - choose items
-- power ups (could be in lootboxes)
-    - draw three items for inventory
-    - you can fail a round
+- power-ups (could be in lootboxes)
+    - Draw three items for inventory
+    - You can fail a round
 - add a streak message (encouragement)
 - difficulty
     - select difficulty
@@ -30,34 +31,34 @@
     - fewer numbers and operators
 - make every target possible
     - easier to generate all possible then choose
-- add a help command for the game
-- change the way the scoring works
-    - using fewer symbols gives more points?
-    - using more symbols gives more points?
-    - certain symbols are worth more?
-    - calculate the percent of your total symbols?
-- mode where there are two target
-    - anyone in your expression evals to bonus you get it
+- Add a help command for the game
+- Change the way the scoring works
+    - Using fewer symbols gives more points?
+    - Using more symbols gives more points?
+    - Are certain symbols worth more?
+    - Calculate the percent of your total symbols?
+- mode where there are two targets
+    - If any number/operation in your expression evaluates to a particular number you get it a bonus
 
 # Setup instructions
 ## short
-- install dependencies in `requirements.txt` and run `main.py` with python
+- Install dependencies in `requirements.txt` and run `main.py` with Python
 ## verbose
-- run these commands in your shell/ terminal in the root directory of this project
-- set up a python environment (optional)
+- Run these commands in your shell/ terminal in the root directory of this project
+- Set up a Python environment (optional)
     - create environment: `python -m venv venv`
-    - python might be `python3` on your path as well
+    - Python might be `python3` on your path as well
     - activate (windows): `venv\Scripts\activate`
-        - if you get a "Scripts are disabled on this system" (powershell error) you can run the follow command
-        - you may want to revert this for security reasons
+        - If you get a "Scripts are disabled on this system" (PowerShell error), you can run the following command
+        - You may want to revert this for security reasons
         - `Set-ExecutionPolicy Unrestricted`
     - activate (mac/ linux): `source venv/bin/activate`
 - install dependencies 
     - `pip install -r requirements.txt`
-- if you dont have pip in your path (command not found) but you have python you can use
+- If you don't have pip in your path (command not found) but you have python you can use
     - `python -m pip install -r requirements.txt`
-    - python might be `python3` on your path
-- run the program
+    - Python might be `python3` on your path
+- Run the program
     - `python main.py`
-    - python might be `python3` on your path
+    - Python might be `python3` on your path
 
